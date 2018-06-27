@@ -1,0 +1,82 @@
+<?php include "header.php"; ?>
+
+<main>
+<div class="container">
+
+	<div class="reinitialisationMdp">
+	<div class="reinitialiserMdp">
+
+		<h2>Réinitialisation du mot de passe</h2>
+
+		
+
+		<?php if ( isset($erreursReinitialisationMdp) && !empty($erreursReinitialisationMdp) ): ?>
+			<div class="message-erreur">	
+				<?php foreach ($erreursReinitialisationMdp as $erreurReinitialisationMdp): ?>
+					<?= $erreurReinitialisationMdp; ?>
+				<?php endforeach; ?>
+			</div>
+			<p>Entrez l' adresse email avec laquelle vous vous êtes inscrit. Nous allons vous envoyer un email avec un lien pour réinitialiser votre mot de passe.</p>
+			<form method="POST" class="formulaire-classic">
+				<input required type="mail" name="email_reinitialisation" placeholder="Email">
+				<button type="submit">Envoyer</button>
+			</form>
+
+
+		<?php elseif ( isset($erreursModificationMdp) && !empty($erreursModificationMdp) ): ?>
+			<div class="message-erreur">	
+				<?php foreach ($erreursModificationMdp as $erreurModificationMdp): ?>
+					<?= $erreurModificationMdp; ?>
+				<?php endforeach; ?>
+			</div>
+			<p>Veuillez saisir votre nouveau mot de passe !</p>
+			<form action="reinitialisation-mdp.php" method="POST" class="formulaire-classic">
+				<input type="hidden" name="email_modification" value="<?= $_GET['email']; ?>">
+				<input type="hidden" name="cle_modification" value="<?= $_GET['cle']; ?>">
+				<input required type="password" name="mdp_modification_1" placeholder="Mot de passe">
+				<input required type="password" name="mdp_modification_2" placeholder="Confirmer mot de passe">
+				<button type="submit">Modifier</button>
+			</form>
+
+
+		<?php elseif(isset($email_envoye)): ?>
+			<div class="message-confirmation">
+				<?= $email_envoye; ?>
+			</div>
+
+
+		<?php elseif(isset($mdp_modifie)): ?>
+			<div class="message-confirmation">
+				<?= $mdp_modifie; ?>
+			</div>
+
+
+		<?php else: ?>
+			<?php if ( isset($_GET['email'], $_GET['cle']) ): ?>
+				<p>Veuillez saisir votre nouveau mot de passe !</p>
+				<form action="reinitialisation-mdp.php" method="POST" class="formulaire-classic">
+					<input type="hidden" name="email_modification" value="<?= $_GET['email']; ?>">
+					<input type="hidden" name="cle_modification" value="<?= $_GET['cle']; ?>">
+					<input required type="password" name="mdp_modification_1" placeholder="Mot de passe">
+					<input required type="password" name="mdp_modification_2" placeholder="Confirmer mot de passe">
+					<button type="submit">Modifier</button>
+				</form>
+
+			<?php else: ?>
+				<p>Entrez l' adresse email avec laquelle vous vous êtes inscrit. Nous allons vous envoyer un email avec un lien pour réinitialiser votre mot de passe.</p>
+				<form method="POST" class="formulaire-classic">
+					<input required="" type="mail" name="email_reinitialisation" placeholder="Email">
+					<button type="submit">Envoyer</button>
+				</form>
+
+			<?php endif; ?>
+
+		<?php endif; ?>
+
+	</div>
+	</div>
+
+</div>
+</main>
+
+<?php include "footer.php"; ?>

@@ -1,0 +1,719 @@
+/*********************************************************************************
+**********************************************************************************
+OUTILS
+**********************************************************************************
+*********************************************************************************/
+/* COLORS
+*/
+
+/* POLICES */
+@font-face 
+{
+	font-family: 'Germanica';
+	src: url('../fonts/Plain%20Germanica.ttf');
+}
+
+
+/* clearfix *******************************/
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+} 
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+
+
+
+
+
+/*********************************************************************************
+**********************************************************************************
+GENERALITES
+**********************************************************************************
+*********************************************************************************/
+body
+{
+	background-image: url('../images/fonds/black-and-white-texture-floor-interior-old-cobblestone-622818-pxhere.com.jpg');
+	background-size: cover;
+	background-position: center top;
+}
+
+.container
+{
+	max-width: 1000px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+ul
+{
+	list-style-type: none;
+	padding-left: 0;
+}
+
+a
+{
+	text-decoration: none;
+	color: black;
+}
+
+a:hover
+{
+	color: #831413;
+}
+
+h1, h2, h3
+{
+	font-family: 'Germanica', sans-serif;
+	color: #831413;
+}
+
+.invisible
+{
+	display: none;
+}
+
+.formulaire-classic
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width: 100%;
+}
+
+.quitter
+{
+	position: absolute;
+	top: 2%;
+	right: 2%;
+}
+
+.quitter:hover
+{
+	color: #831413;
+}
+
+.message-erreur
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 80%;
+}
+
+.message-erreur p
+{
+	margin: 1% 0;
+	padding: 1% 3%;
+	color: #831413;
+	font-weight: bold;
+	background-color: lightgray;
+	border: 1px solid #831413;
+	border-radius: 5px;
+	width: 100%;
+}
+
+.message-confirmation
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 80%;
+}
+
+.message-confirmation p
+{
+	width: 100%;
+	margin: 1% 0;
+	padding: 1% 3%;
+	color: #006400;
+	font-weight: bold;
+	background-color: lightgray;
+	border: 1px solid #006400;
+	border-radius: 5px;
+}
+
+
+
+/*********************************************************************************
+**********************************************************************************
+HEADER
+**********************************************************************************
+*********************************************************************************/
+header
+{
+	background-image: url('../images/fonds/steel_bg.jpg');
+	background-size: cover;
+
+	border-bottom: 3px solid gray;
+}
+
+header div
+{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	padding: 0.5% 0;
+}
+
+
+/*****************************/
+.logo
+{
+	display: inline-block;
+	width: 20%;
+}
+
+.logo img
+{
+	width: 50%;
+	height: auto;
+}
+
+
+/*****************************/
+.menuEntete
+{
+	display: inline-block;
+	width: 80%;
+}
+
+.menuEntete h1
+{
+	font-size: 4em;
+	margin: 0 1%;
+}
+
+.menuProfil ul
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.menuProfil ul li
+{
+	margin: 0 1%;
+}
+
+.menuSite ul
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.menuSite a
+{
+	font-size: 1.4em;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+/*******************************************************************************
+Formulaire d'inscription
+*******************************************************************************/
+.inscription
+{
+	position: fixed;
+	top: 20%;
+	left: 50%;
+
+	width: 400px;
+	margin-left: -200px;
+	height: auto;
+
+	padding: 1%;
+	border: 3px solid #831413;
+	border-radius: 10px;
+
+	background-image: url('../images/fonds/steel_bg.jpg');
+}
+
+.inscription h3
+{
+	font-size: 2em;
+	margin: 3% 0;
+}
+
+.inscription input
+{
+	width: 80%;
+	height: 3em;
+	padding: 0 3%;
+	margin: 1% 0;
+	background-color: #D3D3D3;
+	border: 1px solid gray;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px gray inset;
+}
+
+.inscription input:focus
+{
+	outline-color: #831413;
+}
+
+.inscription button
+{
+	width: 100px;
+	height: 40px;
+	margin: 3%;
+	border-radius: 5px;
+}
+
+.inscription button:hover
+{
+	border: 3px solid #831413;
+}
+
+/*******************************************************************************
+Formulaire de connexion
+*******************************************************************************/
+.connexion
+{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+
+	width: 400px;
+	margin-left: -200px;
+	height: 400px;
+	margin-top: -200px;
+
+	padding: 1%;
+	border: 3px solid #831413;
+	border-radius: 10px;
+
+	background-image: url('../images/fonds/steel_bg.jpg');
+}
+
+.connexion h3
+{
+	font-size: 2em;
+	margin: 3% 0;
+}
+
+.connexion input
+{
+	width: 80%;
+	height: 3em;
+	padding: 0 3%;
+	margin: 1% 0;
+	background-color: #D3D3D3;
+	border: 1px solid gray;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px gray inset;
+}
+
+.connexion input:focus
+{
+	outline-color: #831413;
+}
+
+.connexion button
+{
+	width: 100px;
+	height: 40px;
+	margin: 3%;
+	border-radius: 5px;
+}
+
+.connexion button:hover
+{
+	border: 3px solid #831413;
+}
+
+/* -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+- RESPONSIVE -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+- */
+/* TABLETTE */
+@media screen and (min-width: 480px) and (max-width: 960px)
+{
+	.logo
+	{
+		display: none;
+	}
+
+	.menuEntete
+	{
+		width: 100%;
+	}
+
+	.menuProfil ul
+	{
+		justify-content: center;
+	}
+
+	.menuSite ul
+	{
+		justify-content: center;
+	}
+
+	.menuSite ul li
+	{
+		width: 30%;
+		margin: 1% 0;
+	}
+}
+
+/* MOBILE */
+@media screen and (max-width: 480px)
+{
+	.logo
+	{
+		display: none;
+	}
+
+	.menuEntete
+	{
+		width: 100%;
+	}
+
+	.menuProfil ul
+	{
+		justify-content: center;
+	}
+
+	.menuSite ul
+	{
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	.inscription
+	{
+		top: 0%;
+		left: 0%;
+
+		width: 95vw;
+		min-height: 95vh;
+		margin-left: 0;
+	}
+}
+
+
+
+
+
+/*********************************************************************************
+**********************************************************************************
+MAIN
+**********************************************************************************
+*********************************************************************************/
+main
+{
+	width: 100%;
+	min-height: 100vh;
+}
+
+.enConstruction
+{
+	width: 80%;
+	height: auto;
+}
+
+/*******************************************************************************
+Page de confirmation de compte
+*******************************************************************************/
+.validation
+{
+	width: 100%;
+	min-height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.confirmerCompte
+{
+	width: 60%;
+
+	padding: 1%;
+	border: 3px solid #831413;
+	border-radius: 10px;
+
+	background-image: url('../images/fonds/steel_bg.jpg');
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.confirmerCompte input
+{
+	width: 80%;
+	height: 3em;
+	padding: 0 3%;
+	margin: 1% 0;
+	background-color: #D3D3D3;
+	border: 1px solid gray;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px gray inset;
+}
+
+.confirmerCompte input:focus
+{
+	outline-color: #831413;
+}
+
+.confirmerCompte button
+{
+	width: 200px;
+	height: 40px;
+	margin: 3%;
+	border-radius: 5px;
+}
+
+.confirmerCompte button:hover
+{
+	border: 3px solid #831413;
+}
+
+
+
+/*******************************************************************************
+Page de modification de profil
+*******************************************************************************/
+.informationsProfil
+{
+	width: 100%;
+	min-height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.modifierProfil
+{
+	width: 60%;
+
+	padding: 1%;
+	border: 3px solid #831413;
+	border-radius: 10px;
+
+	background-image: url('../images/fonds/steel_bg.jpg');
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.modifierProfil input
+{
+	width: 80%;
+	height: 3em;
+	padding: 0 3%;
+	margin: 1% 0;
+	background-color: #D3D3D3;
+	border: 1px solid gray;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px gray inset;
+}
+
+.modifierProfil input:focus
+{
+	outline-color: #831413;
+}
+
+.modifierProfil button
+{
+	width: 200px;
+	height: 40px;
+	margin: 3%;
+	border-radius: 5px;
+}
+
+.modifierProfil button:hover
+{
+	border: 3px solid #831413;
+}
+
+
+
+/*******************************************************************************
+Page de réinitialisation de mot de passe
+*******************************************************************************/
+.reinitialisationMdp
+{
+	width: 100%;
+	min-height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.reinitialiserMdp
+{
+	width: 60%;
+
+	padding: 1%;
+	border: 3px solid #831413;
+	border-radius: 10px;
+
+	background-image: url('../images/fonds/steel_bg.jpg');
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.reinitialiserMdp input
+{
+	width: 80%;
+	height: 3em;
+	padding: 0 3%;
+	margin: 1% 0;
+	background-color: #D3D3D3;
+	border: 1px solid gray;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px gray inset;
+}
+
+.reinitialiserMdp input:focus
+{
+	outline-color: #831413;
+}
+
+.reinitialiserMdp button
+{
+	width: 200px;
+	height: 40px;
+	margin: 3%;
+	border-radius: 5px;
+}
+
+.reinitialiserMdp button:hover
+{
+	border: 3px solid #831413;
+}
+
+
+/*********************************************************************************
+**********************************************************************************
+FOOTER
+**********************************************************************************
+*********************************************************************************/
+footer
+{
+	background-image: url('../images/fonds/steel_bg.jpg');
+	background-size: cover;
+
+	border-top: 3px solid gray;
+}
+
+.menuPied ul
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+
+	min-height: 100px;
+	margin-bottom: 0;
+}
+
+.menuPied ul li
+{
+	margin: 0 5%;
+}
+
+/* logo STEAM */
+.menuPied ul li:nth-of-type(1) img
+{
+	width: 80%;
+	height: auto;
+}
+
+/* logo MORDHAU */
+.menuPied ul li:nth-of-type(2) img
+{
+	width: 100%;
+	height: auto;
+}
+
+/* logo DISCORD */
+.menuPied ul li:nth-of-type(3) img
+{
+	width: 130%;
+	height: auto;
+}
+
+
+/* -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+- RESPONSIVE -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+- */
+/* TABLETTE */
+@media screen and (min-width: 480px) and (max-width: 960px)
+{
+	/* logo STEAM */
+	.menuPied ul li:nth-of-type(1) img
+	{
+		width: 60%;
+		height: auto;
+	}
+
+	/* logo MORDHAU */
+	.menuPied ul li:nth-of-type(2) img
+	{
+		width: 80%;
+		height: auto;
+	}
+
+	/* logo DISCORD */
+	.menuPied ul li:nth-of-type(3) img
+	{
+		width: 100%;
+		height: auto;
+	}
+}
+
+/* MOBILE */
+@media screen and (max-width: 480px)
+{
+	.menuPied ul
+	{
+		flex-direction: column;
+		justify-content: center;
+
+		min-height: 150px;
+	}
+
+	/* logo STEAM */
+	.menuPied ul li:nth-of-type(1) img
+	{
+		width: 30%;
+		height: auto;
+	}
+
+	/* logo MORDHAU */
+	.menuPied ul li:nth-of-type(2) img
+	{
+		width: 50%;
+		height: auto;
+	}
+
+	/* logo DISCORD */
+	.menuPied ul li:nth-of-type(3) img
+	{
+		width: 32.5%;
+		height: auto;
+	}
+}
+
+
+

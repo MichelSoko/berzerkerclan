@@ -1,0 +1,45 @@
+<?php include "header.php"; ?>
+
+<main>
+<div class="container">
+
+	<div class="validation">
+		<div class="confirmerCompte">
+
+			<h2>Confirmation de compte</h2>
+
+			<?php if(!empty($erreursValidation)): ?>
+				<div class="message-erreur">	
+					<?php foreach ($erreursValidation as $erreurValidation): ?>
+						<?= $erreurValidation; ?>
+					<?php endforeach; ?>
+				</div>
+				<form method="POST" class="formulaire-classic">
+					<input type="mail" name="email_validation" placeholder="Email">
+					<button type="submit">Renvoyer un email</button>
+				</form>
+
+			<?php elseif (isset($profil_valide)): ?>
+				<div class="message-confirmation">
+					<?= $profil_valide; ?>
+				</div>
+
+			<?php elseif (isset($email_renvoye)): ?>
+				<div class="message-confirmation">
+					<?= $email_renvoye; ?>
+				</div>
+
+			<?php else: ?>
+				<form method="POST" class="formulaire-classic">
+					<input type="mail" name="email_validation" placeholder="Email">
+					<button type="submit">Renvoyer un email</button>
+				</form>
+			<?php endif; ?>
+			
+		</div>
+	</div>
+
+</div>
+</main>
+
+<?php include "footer.php"; ?>

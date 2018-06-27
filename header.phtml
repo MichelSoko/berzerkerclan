@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	<title>Berzerker Clan</title>
+
+	<!-- Normalize version 8.0.0 -->
+	<link rel="stylesheet" href="css/normalize.css">
+	<!-- Le CSS du site Berzerker Clan -->
+	<link rel="stylesheet" href="css/berzerker_clan.css">
+</head>
+
+<body>
+	<header>
+	<div class="container">
+
+		<div class="logo">
+			<a href="index.php"><img src="images/logos_clan/BClogo0.png" alt="Logo du Clan Berzerker"></a>
+		</div>
+
+		<div class="menuEntete">
+			<nav class="menuProfil">
+				<ul>
+					<?php if ( isset($_SESSION['berzerker_connecte']) ): ?>
+						<li>Bonjour <a href="page-perso.php" title="Accéder à ma page personnelle"><?= $_SESSION['berzerker_connecte'][2]; ?></a></li>
+						<li>|</li>
+						<li><a href="profil.php" title="Modifier mes informations de profil"><i class="fas fa-cog"></i></a></li>
+						<li><a href="deconnexion.php" title="Se déconnecter"><i class="fas fa-sign-out-alt"></i></a></li>
+					<?php else: ?>
+						<li><a href="#" id="sinscrire">S'inscrire</a></li>
+						<li>|</li>
+						<li><a href="#" id="seConnecter">Se connecter</a></li>
+					<?php endif; ?>
+				</ul>
+			</nav>
+			<h1>Berzerker Clan</h1>
+			<nav class="menuSite">
+				<ul>
+					<li><a href="index.php">Accueil</a></li>
+					<li><a href="videos.php">Vidéos</a></li>
+					<li><a href="armurerie.php">Armurerie</a></li>
+					<li><a href="evenements.php">Événements</a></li>
+					<li><a href="contacts.php">Contacts</a></li>
+				</ul>
+			</nav>
+		</div>
+
+
+
+
+
+		<div id="inscription" class="inscription invisible">
+			<?php if(!empty($erreursInscription) || isset($profil_cree)): ?>
+				<script>
+					// affiche le formulaire d'inscription s'il y a des erreurs dans son envoi ou si le compte a été créé
+					document.querySelector('#inscription').classList.remove("invisible");
+				</script>
+			<?php endif; ?>
+
+			<a href="#" id="quitterInscription" class="quitter"><i class="fas fa-times"></i></a>
+			<form class="formulaire-classic" method="POST">
+				<h3>Inscription</h3>
+
+				<?php if(!empty($erreursInscription)): ?>
+					<div class="message-erreur">
+						<?php foreach ($erreursInscription as $erreurInscription): ?>
+							<?= $erreurInscription; ?>
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
+
+				<?php if (isset($profil_cree)): ?>
+					<div class="message-confirmation">
+						<?= $profil_cree; ?>
+					</div>
+				<?php endif; ?>
+
+				<input required type="mail" name="email_inscription" placeholder="Email" value="<?= $email_inscription; ?>">
+				<input required type="text" name="pseudo_inscription" placeholder="Pseudo" value="<?= $pseudo_inscription; ?>">
+				<input required type="password" name="mdp_inscription_1" placeholder="Mot de passe" value="<?= $mdp_inscription_1; ?>">
+				<input required type="password" name="mdp_inscription_2" placeholder="Confirmer mot de passe" value="<?= $mdp_inscription_2; ?>">
+
+				<div>
+					<button type="reset">Effacer</button>
+					<button type="submit">S'inscrire</button>
+				</div>
+			</form>
+		</div>
+
+
+
+
+
+		<div id="connexion" class="connexion invisible">
+			<?php if( !empty($erreursConnexion) ): ?>
+				<script>
+					// affiche le formulaire de connexion s'il y a des erreurs dans son envoi
+					document.querySelector('#connexion').classList.remove("invisible");
+				</script>
+			<?php endif; ?>
+
+			<a href="#" id="quitterConnexion" class="quitter"><i class="fas fa-times"></i></a>
+			<form class="formulaire-classic" method="POST">
+				<h3>Connexion</h3>
+
+				<?php if(!empty($erreursConnexion)): ?>
+					<div class="message-erreur">
+						<?php foreach ($erreursConnexion as $erreurConnexion): ?>
+							<?= $erreurConnexion; ?>
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
+
+				<input type="text" name="email_connexion" placeholder="Email" value="<?= $email_connexion; ?>">
+				<input type="password" name="mdp_connexion" placeholder="Mot de passe" value="<?= $mdp_connexion; ?>">
+
+				<a href="reinitialisation-mdp.php">Mot de passe oublié ?</a>
+
+				<div>
+					<button type="submit">Connexion</button>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	</header>

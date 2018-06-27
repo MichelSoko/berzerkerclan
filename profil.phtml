@@ -1,0 +1,92 @@
+<?php include "header.php"; ?>
+
+<main>
+<div class="container">
+
+	<div class="informationsProfil">
+	<div class="modifierProfil">
+
+		<h2>Informations sur votre compte</h2>
+
+		<?php if (isset($profil_nonConnecte)): ?>
+			<div class="message-erreur">
+				<?= $profil_nonConnecte; ?>
+			</div>
+
+		<?php elseif(!empty($erreursProfil)): ?>
+			<div class="message-erreur">	
+				<?php foreach ($erreursProfil as $erreurProfil): ?>
+					<?= $erreurProfil; ?>
+				<?php endforeach; ?>
+			</div>
+			<form method="POST" class="formulaire-classic">
+
+				<p>Inscris depuis le <?= $date_inscription_profil; ?></p>
+
+				<label for="email_profil">Email</label>
+				<input id="email_profil" type="mail" name="email_profil" placeholder="Votre email" value="<?= $email_profil; ?>">
+
+				<label for="pseudo_profil">Pseudo</label>
+				<input id="pseudo_profil" type="text" name="pseudo_profil" placeholder="Votre pseudo" value="<?= $pseudo_profil; ?>">
+
+				<label for="steam_profil">Profil Steam</label>
+				<input id="steam_profil" type="text" name="steam_profil" placeholder="Votre profil Steam" value="<?= $steam_profil; ?>">
+
+				<a href="reinitialisation-mdp.php">Réinitialiser le mot de passe</a>
+
+				<button type="submit">Enregistrer</button>
+
+			</form>
+
+		<?php elseif (isset($profil_modifie)): ?>
+			<div class="message-confirmation">
+				<?= $profil_modifie; ?>
+			</div>
+			<form method="POST" class="formulaire-classic">
+				
+				<p>Inscris depuis le <?= $date_inscription_profil; ?></p>
+
+				<label for="email_profil">Email</label>
+				<input id="email_profil" type="mail" name="email_profil" placeholder="Votre email" value="<?= $email_profil; ?>">
+
+				<label for="pseudo_profil">Pseudo</label>
+				<input id="pseudo_profil" type="text" name="pseudo_profil" placeholder="Votre pseudo" value="<?= $pseudo_profil; ?>">
+
+				<label for="steam_profil">Profil Steam</label>
+				<input id="steam_profil" type="text" name="steam_profil" placeholder="Votre profil Steam" value="<?= $steam_profil; ?>">
+
+				<a href="reinitialisation-mdp.php">Réinitialiser le mot de passe</a>
+
+				<button type="submit">Enregistrer</button>
+
+			</form>
+
+		<?php else: ?>
+			<form method="POST" class="formulaire-classic">
+				
+				<p>Inscris depuis le <?= $date_inscription_profil; ?></p>
+
+				<label for="email_profil">Email</label>
+				<input id="email_profil" type="mail" name="email_profil" placeholder="Votre email" value="<?= $email_profil; ?>">
+
+				<label for="pseudo_profil">Pseudo</label>
+				<input id="pseudo_profil" type="text" name="pseudo_profil" placeholder="Votre pseudo" value="<?= $pseudo_profil; ?>">
+
+				<label for="steam_profil">Profil Steam</label>
+				<input id="steam_profil" type="text" name="steam_profil" placeholder="Votre profil Steam" value="<?= $steam_profil; ?>">
+
+				<a href="reinitialisation-mdp.php">Réinitialiser le mot de passe</a>
+
+				<button type="submit">Enregistrer</button>
+
+			</form>
+		<?php endif; ?>
+
+	</div>
+	</div>
+
+</div>
+</main>
+
+<?php include "footer.php"; ?>
+
